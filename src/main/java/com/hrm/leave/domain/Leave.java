@@ -21,8 +21,6 @@ public class Leave {
 	private Double totalLeaves;
 	private Double remainingLeaves;
 	private int employeeId;
-	private String myname;
-
 	@Enumerated(EnumType.STRING)
 	private LeaveStatus status;
 
