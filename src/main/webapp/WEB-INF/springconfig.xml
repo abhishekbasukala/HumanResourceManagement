@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
 	<context:annotation-config />
 
+	<context:component-scan base-package="com.hrm" />
+
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="hibernateProperties" ref="hibernateProperties" />
+		<property name="packagesToScan" value="com.hrm.employee.domain"></property>
 		<!-- OR mapping files. -->
-		<property name="annotatedClasses">
-			<list>
-				<value>cs544.exercise8_2.Student</value>
-				<value>cs544.exercise8_2.Course</value>
-			</list>
-		</property>
+		
 	</bean>
 
 	<!-- the datasource -->
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3307/cs544" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3307/HRM?createDatabaseIfNotExist=true" />
 		<property name="username" value="root" />
 		<property name="password" value="abcd" />
 	</bean>
@@ -41,5 +41,7 @@
 			</props>
 		</property>
 	</bean>
+
+	
 
 </beans>
