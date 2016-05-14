@@ -13,7 +13,7 @@
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="hibernateProperties" ref="hibernateProperties" />
-		<property name="packagesToScan" value="com.hrm.employee.domain"></property>
+		<property name="packagesToScan" value="com.hrm.leave.domain"></property>
 		<!-- OR mapping files. -->
 		
 	</bean>
@@ -23,9 +23,9 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql://localhost:3307/HRM?createDatabaseIfNotExist=true" />
+			value="jdbc:mysql://localhost:3306/HRM?createDatabaseIfNotExist=true" />
 		<property name="username" value="root" />
-		<property name="password" value="abcd" />
+		<property name="password" value="" />
 	</bean>
 
 	<!-- hibernate Properties -->

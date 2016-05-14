@@ -18,13 +18,13 @@ public class App {
 	//@Transactional
 	public static void manipulate(){
 		
-		Session session=sessionFactory.getCurrentSession();
+/*		Session session=sessionFactory.getCurrentSession();
 		Transaction tx=session.getTransaction();
 		tx.begin();
 		Address address=new Address("1000 N 4th Street","Fairfield","IA",52557,"USA");
 		Employee emp=new Employee("Abhishek", "Basukala", new Date(), "Male", "Single", "abcd", "6419193545", address, new Date(), new Date(), true);
 		session.save(emp);
-		tx.commit();
+		tx.commit();*/
 		
 	}
 	

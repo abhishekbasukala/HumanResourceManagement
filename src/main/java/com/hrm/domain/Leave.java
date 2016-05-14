@@ -1,5 +1,4 @@
-package com.hrm.leave.domain;
-
+package com.hrm.domain;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -7,8 +6,12 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.hrm.domain.LeaveStatus;
 
 @Entity
+@Table(name="tbl_leave")
 public class Leave {
 	@Id
 	@GeneratedValue
@@ -17,24 +20,21 @@ public class Leave {
 	private Date endDate;
 	private String description;
 	private String leaveType;
-	private Double noOfDays;
+	private Double noOfLeaveDays;
 	private Double totalLeaves;
 	private Double remainingLeaves;
 	private int employeeId;
-	private String myname;
-
 	@Enumerated(EnumType.STRING)
 	private LeaveStatus status;
 
-	public Leave(int leaveId, Date startDate, Date endDate, String description, String leaveType, Double noOfDays,
+	public Leave(Date startDate, Date endDate, String description, String leaveType, Double noOfLeaveDays,
 			Double totalLeaves, Double remainingLeaves, int employeeId, LeaveStatus status) {
 		super();
-		this.leaveId = leaveId;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.description = description;
 		this.leaveType = leaveType;
-		this.noOfDays = noOfDays;
+		this.noOfLeaveDays = noOfLeaveDays;
 		this.totalLeaves = totalLeaves;
 		this.remainingLeaves = remainingLeaves;
 		this.employeeId = employeeId;
@@ -82,11 +82,11 @@ public class Leave {
 	}
 
 	public Double getNoOfDays() {
-		return noOfDays;
+		return noOfLeaveDays;
 	}
 
 	public void setNoOfDays(Double noOfDays) {
-		this.noOfDays = noOfDays;
+		this.noOfLeaveDays = noOfDays;
 	}
 
 	public Double getTotalLeaves() {
