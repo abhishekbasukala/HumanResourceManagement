@@ -1,4 +1,4 @@
-package com.hrm.employee.domain;
+package com.hrm.domain;
 
 import java.util.Date;
 
@@ -6,11 +6,15 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Employee {
 
-	@Id@GeneratedValue
+	@Id
+	@GeneratedValue
 	private long employeeId;
 	private String firstName;
 	private String lastName;
@@ -24,13 +28,13 @@ public class Employee {
 	private Date joinDate;
 	private Date endDate;
 	private boolean Status;
-	
-	
+	@ManyToOne
+	@JoinTable(name="Employee_Department")
+	private Department department;
 
-	public Employee(String firstName, String lastName, Date dob, String sex, String maritalStatus,
-			String email, String contactNumber, Address address, Date joinDate, Date endDate, boolean status) {
-		
-		
+	public Employee(String firstName, String lastName, Date dob, String sex, String maritalStatus, String email,
+			String contactNumber, Address address, Date joinDate, Date endDate, boolean status) {
+
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.dob = dob;
@@ -138,6 +142,14 @@ public class Employee {
 
 	public void setStatus(boolean status) {
 		Status = status;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
 
 }

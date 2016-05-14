@@ -1,4 +1,4 @@
-package com.hrm.employee.domain;
+package com.hrm.domain;
 
 import java.util.Date;
 

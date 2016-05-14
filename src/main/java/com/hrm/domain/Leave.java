@@ -1,4 +1,4 @@
-package com.hrm.leave.domain;
+package com.hrm.domain;
 
 import java.util.Date;
 
@@ -7,8 +7,10 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="tbl_leave")
 public class Leave {
 	@Id
 	@GeneratedValue
